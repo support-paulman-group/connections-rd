@@ -1,0 +1,30 @@
+{
+  "name": "connectionsrd.com",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "dependencies": {
+    "@astrojs/node": "^10.1.0",
+    "@astrojs/react": "^5.0.1",
+    "@tailwindcss/vite": "^4.2.2",
+    "astro": "^6.1.6",
+    "convex": "^1.33.1",
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "^5.4.5"
+  },
+  "overrides": {
+    "vite": "^7"
+  }
+}
