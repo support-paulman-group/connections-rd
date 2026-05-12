@@ -68,7 +68,7 @@
 .connections-nav__links a:hover,
 .connections-nav__submenu button:hover {
   background: rgba(23, 127, 152, 0.1);
-  color: var(--deep-blue) !important;
+  color: var(--brand-deep) !important;
 }
 
 .connections-nav__submenu {
@@ -103,7 +103,7 @@
 
 .connections-nav__dropdown a {
   justify-content: space-between;
-  color: var(--text-primary);
+  color: var(--foreground);
   border-radius: 12px;
 }
 
@@ -142,8 +142,8 @@
   min-height: 44px;
   padding: 10px 16px;
   border-radius: 999px;
-  background: var(--primary-blue);
-  color: var(--white);
+  background: var(--primary);
+  color: var(--primary-foreground);
   font-size: 0.9rem;
   font-weight: 700;
   box-shadow: 0 14px 32px rgba(23, 127, 152, 0.22);
@@ -181,7 +181,7 @@
     radial-gradient(circle at 18% 0%, rgba(167, 211, 221, 0.16), transparent 34%),
     linear-gradient(180deg, #0f5e70 0%, #082f3a 100%);
   box-shadow: -24px 0 52px rgba(0, 0, 0, 0.28);
-  color: var(--white);
+  color: var(--primary-foreground);
 }
 
 .connections-drawer__head {
@@ -213,7 +213,7 @@
   border: 0;
   border-radius: 50%;
   background: rgba(255, 255, 255, 0.12);
-  color: var(--white);
+  color: var(--primary-foreground);
   line-height: 0;
   cursor: pointer;
   transition: var(--transition);
@@ -298,7 +298,7 @@
   border: 0;
   border-radius: 0;
   background: transparent;
-  color: var(--white);
+  color: var(--primary-foreground);
   cursor: pointer;
   font: inherit;
   font-weight: 600;

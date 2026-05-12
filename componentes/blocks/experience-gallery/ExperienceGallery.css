@@ -1,5 +1,5 @@
 .experience-gallery {
-  background: var(--soft-bg);
+  background: var(--muted);
   overflow: hidden;
   padding: 96px 0;
 }
@@ -22,7 +22,7 @@
 }
 
 .experience-gallery__header h2 {
-  color: var(--deep-blue);
+  color: var(--brand-deep);
   font-family: var(--font-display);
   font-size: clamp(2.5rem, 5vw, 4.5rem);
   font-weight: 500;
@@ -31,7 +31,7 @@
 }
 
 .experience-gallery__header div {
-  background: var(--light-accent);
+  background: var(--accent);
   height: 1px;
   margin: 0 auto;
   width: 64px;
@@ -59,8 +59,8 @@
 }
 
 .experience-gallery__item {
-  background: var(--deep-blue);
-  color: var(--white);
+  background: var(--brand-deep);
+  color: var(--primary-foreground);
   text-align: left;
 }
 
@@ -119,7 +119,7 @@
   background: rgba(255, 255, 255, 0.16);
   border: 1px solid rgba(255, 255, 255, 0.28);
   border-radius: 999px;
-  color: var(--white);
+  color: var(--primary-foreground);
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.12em;
@@ -129,7 +129,7 @@
 }
 
 .experience-gallery__kicker {
-  color: var(--light-accent);
+  color: var(--accent);
   display: block;
   font-size: 0.65rem;
   font-weight: 700;
@@ -142,7 +142,7 @@
 }
 
 .experience-gallery__caption {
-  color: var(--white);
+  color: var(--primary-foreground);
   display: block;
   font-family: var(--font-display);
   font-size: clamp(1.6rem, 2.7vw, 2.35rem);
@@ -164,8 +164,8 @@
 
 .experience-gallery__catalog {
   align-items: center;
-  background: var(--deep-blue);
-  color: var(--white);
+  background: var(--brand-deep);
+  color: var(--primary-foreground);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -184,7 +184,7 @@
   align-items: center;
   border: 1px solid rgba(167, 211, 221, 0.45);
   border-radius: 999px;
-  color: var(--light-accent);
+  color: var(--accent);
   display: inline-flex;
   height: 64px;
   justify-content: center;
@@ -195,8 +195,8 @@
 
 .experience-gallery__catalog:hover .experience-gallery__catalog-icon,
 .experience-gallery__catalog:focus-visible .experience-gallery__catalog-icon {
-  border-color: var(--white);
-  color: var(--white);
+  border-color: var(--primary-foreground);
+  color: var(--primary-foreground);
   transform: scale(1.08);
 }
 
@@ -209,7 +209,7 @@
 
 .experience-gallery__catalog-link {
   border-bottom: 1px solid rgba(167, 211, 221, 0.55);
-  color: var(--light-accent);
+  color: var(--accent);
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 0.2em;
@@ -255,7 +255,7 @@
 
 .experience-gallery-modal__brand {
   align-items: baseline;
-  color: var(--white);
+  color: var(--primary-foreground);
   display: flex;
   gap: 18px;
 }
@@ -286,7 +286,7 @@
 }
 
 .experience-gallery-modal__count strong {
-  color: var(--white);
+  color: var(--primary-foreground);
 }
 
 .experience-gallery-modal__close,
@@ -295,7 +295,7 @@
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.22);
   border-radius: 999px;
-  color: var(--white);
+  color: var(--primary-foreground);
   cursor: pointer;
   display: inline-flex;
   justify-content: center;
@@ -429,7 +429,7 @@
   border: 1px solid rgba(255, 255, 255, 0.12);
   border-radius: 14px;
   bottom: 28px;
-  color: var(--white);
+  color: var(--primary-foreground);
   left: 50%;
   max-width: min(88vw, 860px);
   opacity: 0;
@@ -485,7 +485,7 @@
 }
 
 .experience-gallery-modal__slide figcaption span {
-  color: var(--light-accent);
+  color: var(--accent);
   display: block;
   font-size: 0.75rem;
   font-weight: 700;

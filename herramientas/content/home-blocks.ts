@@ -1,4 +1,4 @@
-import { cmsAssetSourceMap } from "./cms-source-map";
+import { siteAssets } from "./assets";
 import { siteContact, siteSocialLinks } from "./site-contact";
 import type { HomeBlock, SiteMeta } from "./types";
 
@@ -8,7 +8,7 @@ export const siteMeta: SiteMeta = {
     "Luxury condos in Cabarete, Dominican Republic. Own near Playa Encuentro with refined coastal living, Airbnb-friendly ownership, and smart investment potential.",
   keywords:
     "Connections RD, Cabarete condos, Playa Encuentro real estate, Dominican Republic investment property, Airbnb friendly condos",
-  ogImage: cmsAssetSourceMap.galleryDsc2665.local,
+  ogImage: siteAssets.galleryDsc2665,
 };
 
 export const homeBlocks: HomeBlock[] = [
@@ -33,9 +33,9 @@ export const homeBlocks: HomeBlock[] = [
         },
         { href: "#lead-form", label: "Contact", children: [] },
       ],
-      logoDarkUrl: cmsAssetSourceMap.logoPrimary.local,
+      logoDarkUrl: siteAssets.logoPrimary,
       logoDesktopWidth: 170,
-      logoLightUrl: cmsAssetSourceMap.logoWhite.local,
+      logoLightUrl: siteAssets.logoWhite,
       logoMobileWidth: 140,
       ownerAccessHref: "#lead-form",
       ownerAccessLabel: "Owners Access",
@@ -57,7 +57,7 @@ export const homeBlocks: HomeBlock[] = [
       showScrollIndicator: true,
       subtitle: "Wake up to surf, sunshine, and the freedom of a life \nwithout winter.",
       title: "𝐄𝐧𝐝𝐥𝐞𝐬𝐬 𝐒𝐮𝐦𝐦𝐞𝐫 𝐋𝐢𝐯𝐢𝐧𝐠",
-      videoUrl: cmsAssetSourceMap.heroVideo.local,
+      videoUrl: siteAssets.heroVideo,
     },
   },
   {
@@ -136,12 +136,12 @@ export const homeBlocks: HomeBlock[] = [
             {
               imageAlt: "Imagen 1",
               imageCaption: "",
-              imageUrl: cmsAssetSourceMap.floorPlanDsc2550.local,
+              imageUrl: siteAssets.floorPlanDsc2550,
             },
             {
               imageAlt: "Imagen 2",
               imageCaption: "",
-              imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+              imageUrl: siteAssets.floorPlanDsc2545,
             },
           ],
         },
@@ -232,22 +232,22 @@ export const homeBlocks: HomeBlock[] = [
           alt: "Aerial view of Connections RD property",
           caption: "Modern Beachfront Living",
           featured: true,
-          imageUrl: cmsAssetSourceMap.galleryDsc2665.local,
+          imageUrl: siteAssets.galleryDsc2665,
           media: [
             {
               alt: "Aerial view of Connections RD property",
               caption: "Modern Beachfront Living",
-              imageUrl: cmsAssetSourceMap.galleryDsc2665.local,
+              imageUrl: siteAssets.galleryDsc2665,
             },
             {
               alt: "Connections RD pool and residence detail",
               caption: "Resort-Style Amenities",
-              imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+              imageUrl: siteAssets.floorPlanDsc2545,
             },
             {
               alt: "Connections RD outdoor community space",
               caption: "Coastal Community Moments",
-              imageUrl: cmsAssetSourceMap.floorPlanDsc2550.local,
+              imageUrl: siteAssets.floorPlanDsc2550,
             },
           ],
           openMode: "private",
@@ -256,17 +256,17 @@ export const homeBlocks: HomeBlock[] = [
           alt: "Luxury condo interior with ocean view",
           caption: "Stunning Pool",
           featured: true,
-          imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+          imageUrl: siteAssets.floorPlanDsc2545,
           media: [
             {
               alt: "Luxury condo interior with ocean view",
               caption: "Stunning Pool",
-              imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+              imageUrl: siteAssets.floorPlanDsc2545,
             },
             {
               alt: "Aerial view of Connections RD property",
               caption: "Modern Beachfront Living",
-              imageUrl: cmsAssetSourceMap.galleryDsc2665.local,
+              imageUrl: siteAssets.galleryDsc2665,
             },
           ],
           openMode: "private",
@@ -274,17 +274,17 @@ export const homeBlocks: HomeBlock[] = [
         {
           alt: "Community sunset gathering",
           caption: "Sunset Gatherings",
-          imageUrl: cmsAssetSourceMap.floorPlanDsc2550.local,
+          imageUrl: siteAssets.floorPlanDsc2550,
           media: [
             {
               alt: "Community sunset gathering",
               caption: "Sunset Gatherings",
-              imageUrl: cmsAssetSourceMap.floorPlanDsc2550.local,
+              imageUrl: siteAssets.floorPlanDsc2550,
             },
             {
               alt: "Connections RD pool and residence detail",
               caption: "Stunning Pool",
-              imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+              imageUrl: siteAssets.floorPlanDsc2545,
             },
           ],
           openMode: "private",
@@ -359,7 +359,7 @@ export const homeBlocks: HomeBlock[] = [
     type: "ConnectionsFooterBlock",
     props: {
       id: "home-ConnectionsFooterBlock-11",
-      logoUrl: cmsAssetSourceMap.logoWhite.local,
+      logoUrl: siteAssets.logoWhite,
       tagline: "Connections RD",
       description: "Your gateway to Caribbean paradise. Luxury condos steps from world-class surf at Playa Encuentro, Cabarete.",
       phone: siteContact.phone,

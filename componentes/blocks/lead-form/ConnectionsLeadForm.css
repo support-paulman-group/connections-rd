@@ -1,5 +1,5 @@
 .connections-lead {
-  background: var(--soft-bg);
+  background: var(--muted);
 }
 
 .connections-lead__head {
@@ -11,7 +11,7 @@
 .connections-lead__head h2,
 .connections-lead__success h2 {
   margin: 0 0 16px;
-  color: var(--deep-blue);
+  color: var(--brand-deep);
   font-family: var(--font-display);
   font-size: clamp(2rem, 4vw, 3rem);
   line-height: 1.1;
@@ -20,7 +20,7 @@
 .connections-lead__head p:last-child,
 .connections-lead__success p {
   margin: 0;
-  color: var(--text-secondary);
+  color: var(--muted-foreground);
   font-size: 1.08rem;
 }
 
@@ -30,7 +30,7 @@
   margin: 0 auto;
   padding: clamp(26px, 5vw, 48px);
   border-radius: var(--radius-lg);
-  background: var(--white);
+  background: var(--background);
   box-shadow: var(--shadow-md);
 }
 
@@ -67,7 +67,7 @@
 }
 
 .connections-lead__field span {
-  color: var(--text-secondary);
+  color: var(--muted-foreground);
   font-size: 0.86rem;
   font-weight: 700;
 }
@@ -78,10 +78,10 @@
   width: 100%;
   min-height: 48px;
   padding: 12px 14px;
-  border: 1px solid var(--light-accent);
+  border: 1px solid var(--accent);
   border-radius: var(--radius-sm);
-  background: var(--white);
-  color: var(--text-primary);
+  background: var(--background);
+  color: var(--foreground);
   outline: none;
   transition: var(--transition);
 }
@@ -93,13 +93,13 @@
 .connections-lead__field input:focus,
 .connections-lead__field select:focus,
 .connections-lead__field textarea:focus {
-  border-color: var(--primary-blue);
+  border-color: var(--primary);
   box-shadow: 0 0 0 3px rgba(23, 127, 152, 0.14);
 }
 
 .connections-lead__field small,
 .connections-lead__error {
-  color: var(--error);
+  color: var(--destructive);
   font-size: 0.84rem;
 }
 
@@ -124,13 +124,13 @@
 }
 
 .connections-lead__secondary {
-  border: 2px solid var(--primary-blue);
-  color: var(--primary-blue);
+  border: 2px solid var(--primary);
+  color: var(--primary);
 }
 
 .connections-lead__privacy {
   margin: 18px 0 0;
-  color: var(--text-secondary);
+  color: var(--muted-foreground);
   font-size: 0.84rem;
   text-align: center;
 }

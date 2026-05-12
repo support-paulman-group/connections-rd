@@ -27,16 +27,16 @@ export function ConnectionsCardBlock({ sectionLabel, title, subtitle, cards, var
 
       <style>{`
         .connections-cards {
-          background: var(--white);
+          background: var(--background);
         }
 
         .connections-cards--soft {
-          background: var(--soft-bg);
+          background: var(--muted);
         }
 
         .connections-cards--dark {
-          background: linear-gradient(135deg, var(--deep-blue), #083340);
-          color: var(--white);
+          background: linear-gradient(135deg, var(--brand-deep), #083340);
+          color: var(--primary-foreground);
         }
 
         .connections-cards__grid {
@@ -50,7 +50,7 @@ export function ConnectionsCardBlock({ sectionLabel, title, subtitle, cards, var
           padding: 34px;
           border: 1px solid rgba(15,94,112,0.1);
           border-radius: var(--radius-md);
-          background: var(--white);
+          background: var(--background);
           box-shadow: var(--shadow-sm);
           transition: var(--transition);
         }
@@ -73,23 +73,23 @@ export function ConnectionsCardBlock({ sectionLabel, title, subtitle, cards, var
           place-items: center;
           margin-bottom: 22px;
           border-radius: 50%;
-          background: linear-gradient(135deg, var(--primary-blue), var(--deep-blue));
-          color: var(--white);
+          background: linear-gradient(135deg, var(--primary), var(--brand-deep));
+          color: var(--primary-foreground);
         }
 
         .connections-cards h3 {
           margin: 0 0 12px;
-          color: var(--deep-blue);
+          color: var(--brand-deep);
           font-size: 1.25rem;
         }
 
         .connections-cards--dark h3 {
-          color: var(--white);
+          color: var(--primary-foreground);
         }
 
         .connections-cards p {
           margin: 0;
-          color: var(--text-secondary);
+          color: var(--muted-foreground);
         }
 
         .connections-cards--dark p {
