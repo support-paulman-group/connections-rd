@@ -22,7 +22,7 @@ export function ConnectionsAmenities(props: Props) {
       </div>
       <style>{`
         .connections-amenities {
-          background: var(--soft-bg);
+          background: var(--muted);
         }
 
         .connections-amenities__grid {
@@ -39,7 +39,7 @@ export function ConnectionsAmenities(props: Props) {
           padding: 18px;
           border: 1px solid rgba(15,94,112,0.08);
           border-radius: var(--radius-sm);
-          background: var(--white);
+          background: var(--background);
           box-shadow: var(--shadow-sm);
           transition: var(--transition);
         }
@@ -55,8 +55,8 @@ export function ConnectionsAmenities(props: Props) {
           place-items: center;
           flex-shrink: 0;
           border-radius: var(--radius-sm);
-          background: var(--light-accent);
-          color: var(--deep-blue);
+          background: var(--accent);
+          color: var(--brand-deep);
         }
       `}</style>
     </section>

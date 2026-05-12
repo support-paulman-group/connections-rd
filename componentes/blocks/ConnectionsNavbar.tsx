@@ -48,7 +48,7 @@ export function ConnectionsNavbar(props: Props) {
   }, [mobileOpen]);
 
   const logoSrc = heroVisible ? props.logoLightUrl || props.logoDarkUrl : props.logoDarkUrl || props.logoLightUrl;
-  const foreground = heroVisible ? "#ffffff" : "var(--text-primary)";
+  const foreground = heroVisible ? "#ffffff" : "var(--foreground)";
   const logoStyle = {
     width: props.logoDesktopWidth,
     "--mobile-logo-width": `${props.logoMobileWidth}px`,

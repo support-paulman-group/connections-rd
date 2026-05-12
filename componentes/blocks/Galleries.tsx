@@ -39,7 +39,7 @@ const galleryStyles = `
   .connections-gallery,
   .connections-generic-gallery {
     overflow: hidden;
-    background: var(--white);
+    background: var(--background);
   }
 
   .connections-gallery__rail {
@@ -88,7 +88,7 @@ const galleryStyles = `
     inset: auto 0 0;
     padding: 68px 26px 26px;
     background: linear-gradient(to top, rgba(15,94,112,0.86), transparent);
-    color: var(--white);
+    color: var(--primary-foreground);
     font-size: 1.2rem;
     font-weight: 700;
   }

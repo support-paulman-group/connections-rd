@@ -14,7 +14,7 @@ export function SectionHeader({ tag, title, subtitle, dark = false, center = tru
           {tag}
         </p>
       )}
-      <h2 className="section-title" style={{ color: dark ? "var(--white)" : undefined }}>
+      <h2 className="section-title" style={{ color: dark ? "var(--primary-foreground)" : undefined }}>
         {title}
       </h2>
       {subtitle && (

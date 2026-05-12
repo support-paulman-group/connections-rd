@@ -28,7 +28,7 @@ export function ConnectionsLocation(props: Props) {
       </div>
       <style>{`
         .connections-location {
-          background: var(--white);
+          background: var(--background);
         }
 
         .connections-location__grid {
@@ -59,7 +59,7 @@ export function ConnectionsLocation(props: Props) {
           padding: 20px;
           border: 1px solid rgba(15,94,112,0.1);
           border-radius: var(--radius-md);
-          background: var(--soft-bg);
+          background: var(--muted);
         }
 
         .connections-location__highlights span {
@@ -69,19 +69,19 @@ export function ConnectionsLocation(props: Props) {
           place-items: center;
           flex-shrink: 0;
           border-radius: 50%;
-          background: var(--primary-blue);
-          color: var(--white);
+          background: var(--primary);
+          color: var(--primary-foreground);
         }
 
         .connections-location__highlights h3 {
           margin: 0 0 4px;
-          color: var(--deep-blue);
+          color: var(--brand-deep);
           font-size: 1rem;
         }
 
         .connections-location__highlights p {
           margin: 0;
-          color: var(--text-secondary);
+          color: var(--muted-foreground);
           font-weight: 700;
         }
 

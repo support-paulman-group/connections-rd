@@ -17,7 +17,6 @@ export function ConnectionsHero(props: Props) {
       <div className="connections-hero__overlay" />
       <div className="connections-hero__content">
         {props.logoUrl && <img className="connections-hero__logo" src={props.logoUrl} alt="Connections RD" />}
-        <p className="connections-hero__badge">{props.badge}</p>
         <h1>{props.title}</h1>
         <p className="connections-hero__subtitle">{props.subtitle}</p>
         <p className="connections-hero__price">
@@ -34,6 +33,7 @@ export function ConnectionsHero(props: Props) {
       </div>
       {props.showScrollIndicator && (
         <a className="connections-hero__scroll" href="#lifestyle" aria-label="Scroll to content">
+          <span className="connections-hero__scroll-label">Explore</span>
           <span aria-hidden="true" />
         </a>
       )}
@@ -45,6 +45,7 @@ export function ConnectionsHero(props: Props) {
           display: flex;
           align-items: center;
           justify-content: center;
+          padding: clamp(120px, 18vh, 170px) 0 clamp(86px, 12vh, 132px);
           overflow: hidden;
           isolation: isolate;
         }
@@ -59,7 +60,7 @@ export function ConnectionsHero(props: Props) {
         }
 
         .connections-hero__fallback {
-          background: linear-gradient(135deg, var(--deep-blue), #083340);
+          background: linear-gradient(135deg, var(--brand-deep), #083340);
         }
 
         .connections-hero__overlay {
@@ -71,8 +72,7 @@ export function ConnectionsHero(props: Props) {
 
         .connections-hero__content {
           width: min(900px, 100% - 40px);
-          padding-top: 90px;
-          color: var(--white);
+          color: var(--primary-foreground);
           text-align: center;
         }
 
@@ -80,19 +80,6 @@ export function ConnectionsHero(props: Props) {
           height: 82px;
           object-fit: contain;
           margin-bottom: 28px;
-        }
-
-        .connections-hero__badge {
-          display: inline-flex;
-          margin: 0 0 24px;
-          padding: 8px 20px;
-          border: 1px solid rgba(255,255,255,0.3);
-          border-radius: 999px;
-          background: rgba(255,255,255,0.15);
-          backdrop-filter: blur(10px);
-          font-size: 0.82rem;
-          font-weight: 700;
-          letter-spacing: 0.12em;
         }
 
         .connections-hero h1 {
@@ -115,7 +102,7 @@ export function ConnectionsHero(props: Props) {
 
         .connections-hero__price {
           margin: 0 0 32px;
-          color: var(--light-accent);
+          color: var(--accent);
           font-size: 1.35rem;
           font-weight: 700;
         }
@@ -132,56 +119,81 @@ export function ConnectionsHero(props: Props) {
         }
 
         .connections-hero__secondary {
-          color: var(--white);
+          color: var(--primary-foreground);
         }
 
         .connections-hero__secondary:hover {
-          background: var(--white);
-          color: var(--deep-blue);
+          background: var(--background);
+          color: var(--brand-deep);
         }
 
         .connections-hero__scroll {
           position: absolute;
-          bottom: 34px;
-          left: 50%;
-          width: 52px;
-          height: 68px;
-          display: inline-grid;
-          place-items: center;
+          right: clamp(24px, 4vw, 64px);
+          bottom: clamp(24px, 5vh, 46px);
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          min-height: 46px;
+          padding: 8px 10px 8px 16px;
+          border: 1px solid rgba(255,255,255,0.22);
           border-radius: 999px;
-          transform: translateX(-50%);
-          color: var(--white);
+          background: rgba(8, 51, 64, 0.22);
+          backdrop-filter: blur(14px);
+          color: var(--primary-foreground);
           text-decoration: none;
+          opacity: 0.82;
+          transition: opacity 0.2s ease, transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+        }
+
+        .connections-hero__scroll-label {
+          position: static;
+          width: auto;
+          height: auto;
+          border-radius: 0;
+          background: transparent;
+          animation: none;
+          color: rgba(255,255,255,0.78);
+          font-size: 0.68rem;
+          font-weight: 800;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
         }
 
         .connections-hero__scroll::before {
           content: "";
-          width: 28px;
-          height: 44px;
-          border: 2px solid rgba(255,255,255,0.78);
+          width: 22px;
+          height: 34px;
+          border: 2px solid rgba(255,255,255,0.7);
           border-radius: 999px;
           background: rgba(255,255,255,0.04);
           box-shadow: 0 10px 26px rgba(0,0,0,0.16);
-          transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+          transition: border-color 0.2s ease, background 0.2s ease;
         }
 
-        .connections-hero__scroll span {
+        .connections-hero__scroll span[aria-hidden="true"] {
           position: absolute;
-          top: 18px;
-          left: 50%;
-          width: 4px;
-          height: 8px;
+          top: 16px;
+          right: 19px;
+          width: 3px;
+          height: 7px;
           border-radius: 50%;
-          background: var(--white);
-          transform: translateX(-50%);
+          background: var(--background);
           animation: hero-scroll 1.6s ease-in-out infinite;
+        }
+
+        .connections-hero__scroll:hover,
+        .connections-hero__scroll:focus-visible {
+          border-color: rgba(255,255,255,0.36);
+          background: rgba(8, 51, 64, 0.34);
+          opacity: 1;
+          transform: translateY(-2px);
         }
 
         .connections-hero__scroll:hover::before,
         .connections-hero__scroll:focus-visible::before {
-          border-color: var(--white);
+          border-color: var(--primary-foreground);
           background: rgba(255,255,255,0.1);
-          transform: translateY(-2px);
         }
 
         .connections-hero__scroll:focus-visible {
@@ -190,18 +202,62 @@ export function ConnectionsHero(props: Props) {
         }
 
         @keyframes hero-scroll {
-          0%, 100% { transform: translate(-50%, 0); opacity: 0.4; }
-          50% { transform: translate(-50%, 13px); opacity: 1; }
+          0%, 100% { transform: translateY(0); opacity: 0.38; }
+          50% { transform: translateY(10px); opacity: 1; }
+        }
+
+        @media (max-height: 820px) and (min-width: 900px) {
+          .connections-hero {
+            padding-bottom: 86px;
+          }
+
+          .connections-hero__scroll {
+            bottom: 22px;
+            min-height: 40px;
+            padding: 7px 9px 7px 14px;
+          }
+
+          .connections-hero__scroll::before {
+            width: 18px;
+            height: 28px;
+          }
+
+          .connections-hero__scroll span[aria-hidden="true"] {
+            top: 14px;
+            right: 17px;
+          }
         }
 
         @media (max-width: 640px) {
+          .connections-hero {
+            padding-bottom: 72px;
+          }
+
           .connections-hero__actions .btn {
             width: 100%;
+          }
+
+          .connections-hero__scroll {
+            left: 50%;
+            right: auto;
+            bottom: 18px;
+            transform: translateX(-50%);
+          }
+
+          .connections-hero__scroll:hover,
+          .connections-hero__scroll:focus-visible {
+            transform: translate(-50%, -2px);
+          }
+        }
+
+        @media (max-height: 700px) {
+          .connections-hero__scroll {
+            display: none;
           }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          .connections-hero__scroll span {
+          .connections-hero__scroll span[aria-hidden="true"] {
             animation: none;
           }
         }
