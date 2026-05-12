@@ -1,13 +1,14 @@
+import { Facebook, Instagram, MessageCircle, Youtube } from "lucide-react";
 import type { ConnectionsFooterBlock } from "@herramientas/content/types";
 
 type Props = ConnectionsFooterBlock["props"];
 
 export function ConnectionsFooter(props: Props) {
   const socialLinks = [
-    { href: props.facebookHref, label: "Facebook" },
-    { href: props.instagramHref, label: "Instagram" },
-    { href: props.youtubeHref, label: "YouTube" },
-    { href: props.whatsappHref, label: "WhatsApp" },
+    { href: props.facebookHref, label: "Facebook", Icon: Facebook },
+    { href: props.instagramHref, label: "Instagram", Icon: Instagram },
+    { href: props.youtubeHref, label: "YouTube", Icon: Youtube },
+    { href: props.whatsappHref, label: "WhatsApp", Icon: MessageCircle },
   ].filter((link) => link.href && link.href !== "#");
 
   return (
@@ -18,9 +19,9 @@ export function ConnectionsFooter(props: Props) {
           <p className="connections-footer__tagline">{props.tagline}</p>
           <p>{props.description}</p>
           <div className="connections-footer__social">
-            {socialLinks.map((link) => (
-              <a key={link.label} href={link.href} target="_blank" rel="noreferrer" aria-label={link.label}>
-                {link.label.slice(0, 1)}
+            {socialLinks.map(({ href, label, Icon }) => (
+              <a key={label} href={href} target="_blank" rel="noreferrer" aria-label={label} title={label}>
+                <Icon aria-hidden="true" size={18} strokeWidth={2} />
               </a>
             ))}
           </div>
@@ -122,7 +123,18 @@ export function ConnectionsFooter(props: Props) {
           border-radius: 50%;
           background: rgba(255,255,255,0.1);
           color: var(--white);
-          font-weight: 800;
+          transition: background 180ms ease, color 180ms ease, transform 180ms ease;
+        }
+
+        .connections-footer__social a:hover,
+        .connections-footer__social a:focus-visible {
+          background: var(--primary-blue);
+          color: var(--white);
+          transform: translateY(-2px);
+        }
+
+        .connections-footer__social a svg {
+          display: block;
         }
 
         .connections-footer__bottom {
