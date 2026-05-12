@@ -231,17 +231,63 @@ export const homeBlocks: HomeBlock[] = [
         {
           alt: "Aerial view of Connections RD property",
           caption: "Modern Beachfront Living",
+          featured: true,
           imageUrl: cmsAssetSourceMap.galleryDsc2665.local,
+          media: [
+            {
+              alt: "Aerial view of Connections RD property",
+              caption: "Modern Beachfront Living",
+              imageUrl: cmsAssetSourceMap.galleryDsc2665.local,
+            },
+            {
+              alt: "Connections RD pool and residence detail",
+              caption: "Resort-Style Amenities",
+              imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+            },
+            {
+              alt: "Connections RD outdoor community space",
+              caption: "Coastal Community Moments",
+              imageUrl: cmsAssetSourceMap.floorPlanDsc2550.local,
+            },
+          ],
+          openMode: "private",
         },
         {
           alt: "Luxury condo interior with ocean view",
           caption: "Stunning Pool",
+          featured: true,
           imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+          media: [
+            {
+              alt: "Luxury condo interior with ocean view",
+              caption: "Stunning Pool",
+              imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+            },
+            {
+              alt: "Aerial view of Connections RD property",
+              caption: "Modern Beachfront Living",
+              imageUrl: cmsAssetSourceMap.galleryDsc2665.local,
+            },
+          ],
+          openMode: "private",
         },
         {
           alt: "Community sunset gathering",
           caption: "Sunset Gatherings",
           imageUrl: cmsAssetSourceMap.floorPlanDsc2550.local,
+          media: [
+            {
+              alt: "Community sunset gathering",
+              caption: "Sunset Gatherings",
+              imageUrl: cmsAssetSourceMap.floorPlanDsc2550.local,
+            },
+            {
+              alt: "Connections RD pool and residence detail",
+              caption: "Stunning Pool",
+              imageUrl: cmsAssetSourceMap.floorPlanDsc2545.local,
+            },
+          ],
+          openMode: "private",
         },
       ],
     },

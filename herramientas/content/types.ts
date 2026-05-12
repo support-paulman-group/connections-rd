@@ -10,12 +10,18 @@ export type IconCard = {
   description: string;
 };
 
-export type GalleryItem = {
+export type GalleryMedia = {
   imageUrl?: string;
   videoUrl?: string;
   alt: string;
   caption: string;
   type?: "image" | "video";
+};
+
+export type GalleryItem = GalleryMedia & {
+  featured?: boolean;
+  media?: GalleryMedia[];
+  openMode?: "private" | "general";
 };
 
 export type FloorPlanSlide = {

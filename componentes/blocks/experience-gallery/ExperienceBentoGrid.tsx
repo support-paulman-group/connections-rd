@@ -1,9 +1,11 @@
 import { Grid2X2 } from "lucide-react";
-import type { GalleryItem } from "@herramientas/content/types";
+import type { ExperienceTile } from "./galleryModel";
 
 type ExperienceBentoGridProps = {
-  items: GalleryItem[];
-  onOpen: (index: number) => void;
+  catalogCount: number;
+  items: ExperienceTile[];
+  onOpenCatalog: () => void;
+  onOpenTile: (index: number) => void;
 };
 
 const getBentoSize = (index: number): "large" | "wide" | "square" => {
@@ -13,30 +15,32 @@ const getBentoSize = (index: number): "large" | "wide" | "square" => {
   return "square";
 };
 
-export function ExperienceBentoGrid({ items, onOpen }: ExperienceBentoGridProps) {
-  const showCatalogCta = items.length > 4;
+export function ExperienceBentoGrid({ catalogCount, items, onOpenCatalog, onOpenTile }: ExperienceBentoGridProps) {
+  const showCatalogCta = catalogCount > 1;
 
   return (
     <div className="experience-gallery__bento" aria-label="Connections RD experience gallery">
       {items.map((item, index) => {
         const size = getBentoSize(index);
         const label = item.caption || item.alt || `Gallery item ${index + 1}`;
+        const mediaCount = item.media.length;
+        const isPrivate = item.openMode !== "general" && mediaCount > 1;
 
         return (
           <button
             className={`experience-gallery__item experience-gallery__item--${size}`}
             key={`${item.imageUrl || item.videoUrl}-${index}`}
             type="button"
-            data-gallery-open={index}
-            onClick={() => onOpen(index)}
+            onClick={() => onOpenTile(index)}
             aria-label={`Open ${label}`}
           >
-            {item.type === "video" && item.videoUrl ? (
-              <video src={item.videoUrl} autoPlay loop muted playsInline />
+            {item.cover.type === "video" && item.cover.videoUrl ? (
+              <video src={item.cover.videoUrl} autoPlay loop muted playsInline />
             ) : (
-              <img src={item.imageUrl} alt={item.alt || label} loading={index === 0 ? "eager" : "lazy"} />
+              <img src={item.cover.imageUrl} alt={item.cover.alt || label} loading={index === 0 ? "eager" : "lazy"} />
             )}
             <span className="experience-gallery__overlay">
+              <span className="experience-gallery__meta">{isPrivate ? `${mediaCount} Photos` : "View Gallery"}</span>
               {size === "large" && <span className="experience-gallery__kicker">Perspective</span>}
               <span className="experience-gallery__caption">{label}</span>
             </span>
@@ -48,8 +52,7 @@ export function ExperienceBentoGrid({ items, onOpen }: ExperienceBentoGridProps)
         <button
           className="experience-gallery__catalog"
           type="button"
-          data-gallery-open="0"
-          onClick={() => onOpen(0)}
+          onClick={onOpenCatalog}
           aria-label="Open full gallery"
         >
           <span className="experience-gallery__catalog-icon" aria-hidden="true">
@@ -60,7 +63,7 @@ export function ExperienceBentoGrid({ items, onOpen }: ExperienceBentoGridProps)
             <br />
             Catalog
           </span>
-          <span className="experience-gallery__catalog-link">Explore {items.length} Media</span>
+          <span className="experience-gallery__catalog-link">Explore {catalogCount} Media</span>
         </button>
       )}
     </div>
