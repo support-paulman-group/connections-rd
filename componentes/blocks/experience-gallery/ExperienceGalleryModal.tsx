@@ -1,5 +1,6 @@
-import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { X } from "lucide-react";
 import type { CSSProperties } from "react";
+import { MediaControls, MediaFrame } from "@componentes/shared/media";
 import type { GalleryMedia } from "@herramientas/content/types";
 import type { ExperienceModalMode } from "./galleryModel";
 
@@ -60,22 +61,17 @@ export function ExperienceGalleryModal({
         </div>
       </div>
 
-      <button
-        className="experience-gallery-modal__nav experience-gallery-modal__nav--prev"
-        type="button"
-        onClick={onPrevious}
-        aria-label="Previous slide"
-      >
-        <ChevronLeft size={28} strokeWidth={1.7} />
-      </button>
-      <button
-        className="experience-gallery-modal__nav experience-gallery-modal__nav--next"
-        type="button"
-        onClick={onNext}
-        aria-label="Next slide"
-      >
-        <ChevronRight size={28} strokeWidth={1.7} />
-      </button>
+      <MediaControls
+        className="experience-gallery-modal__nav"
+        previousClassName="experience-gallery-modal__nav--prev"
+        nextClassName="experience-gallery-modal__nav--next"
+        previousLabel="Previous slide"
+        nextLabel="Next slide"
+        iconSize={28}
+        strokeWidth={1.7}
+        onPrevious={onPrevious}
+        onNext={onNext}
+      />
 
       <div
         className="experience-gallery-modal__track"
@@ -93,16 +89,15 @@ export function ExperienceGalleryModal({
               aria-hidden={!isActive}
             >
               <div className="experience-gallery-modal__media-shell">
-                {item.type === "video" && item.videoUrl ? (
-                  <video src={item.videoUrl} autoPlay={isActive} loop muted playsInline />
-                ) : (
-                  <img
-                    src={item.imageUrl}
-                    alt={item.alt || label}
-                    decoding="async"
-                    loading={shouldLoadEagerly ? "eager" : "lazy"}
-                  />
-                )}
+                <MediaFrame
+                  active={isActive}
+                  item={item}
+                  label={label}
+                  imageProps={{
+                    decoding: "async",
+                    loading: shouldLoadEagerly ? "eager" : "lazy",
+                  }}
+                />
               </div>
               <figcaption>
                 <strong>{label}</strong>

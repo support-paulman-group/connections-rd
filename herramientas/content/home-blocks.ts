@@ -25,8 +25,6 @@ export const homeBlocks: HomeBlock[] = [
           href: "#",
           label: "Resources",
           children: [
-            { href: "#investment", label: "Investment" },
-            { href: "#community", label: "Community" },
             { href: "#lead-form", label: "Info Packet" },
             { href: "#", label: "Virtual Tour" },
           ],
@@ -61,57 +59,212 @@ export const homeBlocks: HomeBlock[] = [
     },
   },
   {
-    type: "ConnectionsValuePropsBlock",
+    type: "ConnectionsLifestyleAtlasBlock",
     props: {
-      id: "home-ConnectionsValuePropsBlock-3",
+      id: "home-ConnectionsLifestyleAtlasBlock-1",
       sectionLabel: "Lifestyle",
       title: "Refined Coastal Living in Cabarete",
       subtitle:
-        "Own near Playa Encuentro in one of Cabarete’s most sought-after locations where international energy, everyday ease, and long-term value come together.",
-      cards: [
+        "Own near Playa Encuentro in one of Cabarete's most sought-after locations where international energy, everyday ease, and long-term value come together.",
+      primaryCtaHref: "#lead-form",
+      primaryCtaLabel: "Get Free Info Packet",
+      secondaryCtaHref: "#units",
+      secondaryCtaLabel: "View Floor Plans",
+      chapters: [
         {
+          id: "beach-surf",
           icon: "Waves",
-          title: "Surf & Wellness",
+          label: "Beach & Surf",
+          eyebrow: "Playa Encuentro rhythm",
+          title: "Start the day where Cabarete comes alive.",
           description:
-            "Live moments from one of the Caribbean’s most renowned surf destinations, with wellness, movement, and the natural rhythm of coastal life built into every day.",
+            "Connections RD is built around the feeling people come to the north coast for: ocean air, movement, sunshine, and easy access to one of the Caribbean's most recognizable surf communities.",
+          metric: { label: "Beach proximity", value: "5 min to the beach" },
+          media: [
+            {
+              alt: "Morning surf lifestyle near Playa Encuentro",
+              caption: "Morning surf rhythm near Playa Encuentro",
+              imageUrl: siteAssets.lifestyleAtlasBeachMorning,
+            },
+            {
+              alt: "Connections RD outdoor coastal community space",
+              caption: "Outdoor living shaped by Cabarete weather",
+              imageUrl: siteAssets.floorPlanDsc2550,
+            },
+          ],
+          highlights: [
+            {
+              icon: "Waves",
+              title: "Surf culture",
+              description: "Live near Playa Encuentro's surf and wellness energy.",
+            },
+            {
+              icon: "Sun",
+              title: "No winter mindset",
+              description: "A daily environment built around light, movement, and outdoor living.",
+            },
+            {
+              icon: "MapPin",
+              title: "Cabarete access",
+              description: "Close to beach days, restaurants, shops, and social life.",
+            },
+          ],
         },
         {
+          id: "residences",
+          icon: "Home",
+          label: "Residences",
+          eyebrow: "Lock-and-leave ownership",
+          title: "Residences that work as a home base and a getaway.",
+          description:
+            "The unit mix is designed for comfort, views, and flexible ownership, with floor plans that support both personal use and rental appeal.",
+          metric: { label: "Starting price", value: "From $264,399" },
+          media: [
+            {
+              alt: "Modern tropical residence balcony with coastal view",
+              caption: "Private balcony living with coastal ease",
+              imageUrl: siteAssets.lifestyleAtlasResidenceBalcony,
+            },
+            {
+              alt: "Connections RD residence floor plan preview",
+              caption: "Residences with generous outdoor living",
+              imageUrl: siteAssets.floorPlanDsc2550,
+            },
+          ],
+          highlights: [
+            {
+              icon: "Building",
+              title: "2 and 3 bedroom options",
+              description: "Choose from practical layouts, larger residences, and rooftop living.",
+            },
+            {
+              icon: "Camera",
+              title: "Balconies and views",
+              description: "Outdoor space is part of the ownership experience.",
+            },
+            {
+              icon: "Key",
+              title: "Easy ownership",
+              description: "Designed for people who want a polished Caribbean base without daily friction.",
+            },
+          ],
+        },
+        {
+          id: "amenities",
+          icon: "Sparkles",
+          label: "Amenities",
+          eyebrow: "Resort comfort",
+          title: "The comforts buyers expect are built into the day.",
+          description:
+            "The project combines the essentials that make coastal ownership feel smooth: pool, jacuzzi, private gym, security, covered parking, backup systems, and elevator access.",
+          metric: { label: "Everyday support", value: "24/7 comfort" },
+          media: [
+            {
+              alt: "Connections RD pool and residence detail",
+              caption: "Pool, jacuzzi, and relaxed residence life",
+              imageUrl: siteAssets.floorPlanDsc2545,
+            },
+            {
+              alt: "Connections RD community outdoor area",
+              caption: "A visual preview of the amenity lifestyle",
+              imageUrl: siteAssets.galleryDsc2665,
+            },
+          ],
+          highlights: [
+            {
+              icon: "Droplets",
+              title: "Pool and jacuzzi",
+              description: "A resort-style center for slow afternoons and easy resets.",
+            },
+            {
+              icon: "Dumbbell",
+              title: "Private gym",
+              description: "Wellness stays close instead of becoming a commute.",
+            },
+            {
+              icon: "Shield",
+              title: "Security and backup",
+              description: "Gated security, generator, cistern, and practical infrastructure.",
+            },
+          ],
+        },
+        {
+          id: "community-perks",
           icon: "Users",
-          title: "Community & Culture",
+          label: "Community Perks",
+          eyebrow: "Local advantages",
+          title: "Ownership extends beyond the walls of the unit.",
           description:
-            "Experience an international community defined by creativity, connection, and a sophisticated yet relaxed way of living.",
+            "Connections RD adds value through practical community benefits: beach club access, restaurant discounts, shuttle service, and a social coastal setting.",
+          metric: { label: "Owner value", value: "Included perks" },
+          media: [
+            {
+              alt: "Coastal community beach club and restaurant lifestyle",
+              caption: "A social base for coastal living",
+              imageUrl: siteAssets.lifestyleAtlasCommunityPerks,
+            },
+            {
+              alt: "Connections RD coastal project view",
+              caption: "A community connected to Cabarete life",
+              imageUrl: siteAssets.galleryDsc2665,
+            },
+          ],
+          highlights: [
+            {
+              icon: "Bus",
+              title: "Free shuttle",
+              description: "Transportation support around Cabarete and Sosua.",
+            },
+            {
+              icon: "Anchor",
+              title: "Beach club access",
+              description: "Priority access to Front Loop beach club facilities.",
+            },
+            {
+              icon: "Coffee",
+              title: "Restaurant discounts",
+              description: "Local perks that make the lifestyle feel connected.",
+            },
+          ],
         },
         {
+          id: "investment",
           icon: "DollarSign",
-          title: "Investment & Benefits",
+          label: "Investment",
+          eyebrow: "Lifestyle with upside",
+          title: "A coastal lifestyle that can also work financially.",
           description:
-            "With Airbnb-friendly ownership, attractive tax advantages, and strong market appeal, Connections offers a rare blend of lifestyle and investment potential.",
-        },
-      ],
-    },
-  },
-  {
-    type: "ConnectionsCommunityPerksBlock",
-    props: {
-      id: "home-ConnectionsCommunityPerksBlock-8",
-      sectionLabel: "Community",
-      title: "Exclusive Community Perks",
-      subtitle: "Being part of Connections RD means enjoying exclusive benefits and discounts.",
-      cards: [
-        {
-          icon: "Bus",
-          title: "Free Shuttle Bus",
-          description: "Complimentary transportation to key destinations around Cabarete and Sosua.",
-        },
-        {
-          icon: "Dumbbell",
-          title: "Private Gym",
-          description: "Work out at your own pace in our premium, private facilities.",
-        },
-        {
-          icon: "Anchor",
-          title: "Beach Club Access",
-          description: "Priority access to Front Loop beach club facilities.",
+            "The value proposition is not only emotional. Airbnb-friendly ownership, market demand, residency potential, and tax advantages help make the purchase practical.",
+          metric: { label: "Rental model", value: "Airbnb-friendly" },
+          media: [
+            {
+              alt: "Connections RD residence and pool setting",
+              caption: "A lifestyle product with rental appeal",
+              imageUrl: siteAssets.floorPlanDsc2545,
+            },
+            {
+              alt: "Connections RD aerial property view",
+              caption: "Cabarete market visibility and location value",
+              imageUrl: siteAssets.galleryDsc2665,
+            },
+          ],
+          highlights: [
+            {
+              icon: "DollarSign",
+              title: "Income potential",
+              description: "Airbnb-friendly units support rental income when you are away.",
+            },
+            {
+              icon: "FileText",
+              title: "Tax advantages",
+              description: "Dominican incentives may improve the long-term ownership picture.",
+            },
+            {
+              icon: "Globe",
+              title: "Residency path",
+              description: "Units are positioned for buyers considering a deeper Dominican base.",
+            },
+          ],
         },
       ],
     },
@@ -130,6 +283,7 @@ export const homeBlocks: HomeBlock[] = [
         {
           label: "2 Bedroom",
           sqft: "1,200 sq ft",
+          areaSqFt: 1200,
           price: "From $264,399",
           features: [{ value: "2 Bathrooms" }, { value: "4-5 Balconies" }, { value: "Ocean View" }, { value: "Airbnb Friendly" }],
           slides: [
@@ -148,67 +302,18 @@ export const homeBlocks: HomeBlock[] = [
         {
           label: "3 Bedroom",
           sqft: "1,800 sq ft",
+          areaSqFt: 1800,
           price: "From $389,999",
           features: [{ value: "3 Bathrooms" }, { value: "5+ Balconies" }, { value: "Panoramic Views" }, { value: "Airbnb Friendly" }],
         },
         {
           label: "Rooftop",
           sqft: "2,500+ sq ft",
+          areaSqFt: 2500,
+          areaIsApproximate: true,
           price: "From $549,999",
           features: [{ value: "Private Rooftop" }, { value: "360° Views" }, { value: "Premium Finishes" }, { value: "Jacuzzi" }],
         },
-      ],
-    },
-  },
-  {
-    type: "ConnectionsInvestmentBlock",
-    props: {
-      id: "home-ConnectionsInvestmentBlock-7",
-      sectionLabel: "Investment",
-      title: "Extraordinary Lifestyle, Smart Investment",
-      subtitle: "Beyond the beach lifestyle, Connections RD offers compelling financial benefits.",
-      cards: [
-        {
-          icon: "DollarSign",
-          title: "Passive Income Potential",
-          description:
-            "Airbnb-friendly units let you generate rental income when you're not enjoying your paradise home. Strong tourism demand in Cabarete ensures excellent occupancy rates.",
-        },
-        {
-          icon: "FileText",
-          title: "Tax Benefits",
-          description:
-            "Benefit from significant tax exemptions for retirees under Dominican Law 171-07. Transfer taxes are reduced, and retirement income may be tax-exempt.",
-        },
-        {
-          icon: "Globe",
-          title: "Residency Benefits",
-          description:
-            "All units are eligible for Dominican residency through purchase. Open a local bank account, access healthcare, and establish your permanent home in paradise.",
-        },
-      ],
-    },
-  },
-  {
-    type: "ConnectionsAmenitiesBlock",
-    props: {
-      id: "home-ConnectionsAmenitiesBlock-6",
-      sectionLabel: "Amenities",
-      title: "World-Class Amenities",
-      subtitle: "Thoughtfully designed for comfort, luxury, and seamless living.",
-      items: [
-        { icon: "Waves", label: "Minutes away from the Beach" },
-        { icon: "Droplets", label: "Swimming Pool & Jacuzzi" },
-        { icon: "Dumbbell", label: "Fully Equipped Gym" },
-        { icon: "Shield", label: "24/7 Gated Security" },
-        { icon: "Bus", label: "Free Shuttle Bus" },
-        { icon: "Car", label: "Covered Parking" },
-        { icon: "Coffee", label: "Restaurant Discounts" },
-        { icon: "Heart", label: "Pet Friendly" },
-        { icon: "Home", label: "Airbnb Friendly" },
-        { icon: "Zap", label: "24/7 Backup Generator" },
-        { icon: "Building", label: "Elevator Access" },
-        { icon: "Activity", label: "Water Cistern System" },
       ],
     },
   },
@@ -224,67 +329,117 @@ export const homeBlocks: HomeBlock[] = [
   {
     type: "ConnectionsGalleryBlock",
     props: {
+      anchorId: "amenities",
       id: "home-ConnectionsGalleryBlock-4",
-      sectionLabel: "Gallery",
-      title: "Life at Connections RD",
+      sectionLabel: "Amenities",
+      title: "World-Class Amenities",
       items: [
         {
-          alt: "Aerial view of Connections RD property",
-          caption: "Modern Beachfront Living",
-          featured: true,
-          imageUrl: siteAssets.galleryDsc2665,
-          media: [
-            {
-              alt: "Aerial view of Connections RD property",
-              caption: "Modern Beachfront Living",
-              imageUrl: siteAssets.galleryDsc2665,
-            },
-            {
-              alt: "Connections RD pool and residence detail",
-              caption: "Resort-Style Amenities",
-              imageUrl: siteAssets.floorPlanDsc2545,
-            },
-            {
-              alt: "Connections RD outdoor community space",
-              caption: "Coastal Community Moments",
-              imageUrl: siteAssets.floorPlanDsc2550,
-            },
-          ],
-          openMode: "private",
-        },
-        {
-          alt: "Luxury condo interior with ocean view",
-          caption: "Stunning Pool",
+          alt: "Connections RD pool and jacuzzi amenity setting",
+          caption: "Pool & Jacuzzi",
           featured: true,
           imageUrl: siteAssets.floorPlanDsc2545,
           media: [
             {
-              alt: "Luxury condo interior with ocean view",
-              caption: "Stunning Pool",
+              alt: "Connections RD pool and jacuzzi amenity setting",
+              caption: "Pool & Jacuzzi",
               imageUrl: siteAssets.floorPlanDsc2545,
             },
             {
-              alt: "Aerial view of Connections RD property",
-              caption: "Modern Beachfront Living",
+              alt: "Connections RD outdoor community view near the pool",
+              caption: "Resort-Style Outdoor Living",
               imageUrl: siteAssets.galleryDsc2665,
             },
           ],
           openMode: "private",
         },
         {
-          alt: "Community sunset gathering",
-          caption: "Sunset Gatherings",
+          alt: "Morning surf lifestyle near Playa Encuentro",
+          caption: "Beach Proximity",
+          featured: true,
+          imageUrl: siteAssets.lifestyleAtlasBeachMorning,
+          media: [
+            {
+              alt: "Morning surf lifestyle near Playa Encuentro",
+              caption: "Minutes from Playa Encuentro",
+              imageUrl: siteAssets.lifestyleAtlasBeachMorning,
+            },
+            {
+              alt: "Aerial view of Connections RD near Cabarete coastal life",
+              caption: "Cabarete Coastal Access",
+              imageUrl: siteAssets.galleryDsc2665,
+            },
+          ],
+          openMode: "private",
+        },
+        {
+          alt: "Connections RD wellness and private gym lifestyle",
+          caption: "Private Gym & Wellness",
           imageUrl: siteAssets.floorPlanDsc2550,
           media: [
             {
-              alt: "Community sunset gathering",
-              caption: "Sunset Gatherings",
+              alt: "Connections RD wellness and private gym lifestyle",
+              caption: "Private Gym & Wellness",
               imageUrl: siteAssets.floorPlanDsc2550,
             },
             {
-              alt: "Connections RD pool and residence detail",
-              caption: "Stunning Pool",
+              alt: "Modern tropical residence balcony with coastal breeze",
+              caption: "Wellness-Oriented Coastal Living",
+              imageUrl: siteAssets.lifestyleAtlasResidenceBalcony,
+            },
+          ],
+          openMode: "private",
+        },
+        {
+          alt: "Connections RD gated ownership and backup comfort",
+          caption: "Security & Backup",
+          imageUrl: siteAssets.floorPlanDsc2550,
+          media: [
+            {
+              alt: "Connections RD gated ownership and backup comfort",
+              caption: "24/7 Gated Security",
+              imageUrl: siteAssets.floorPlanDsc2550,
+            },
+            {
+              alt: "Connections RD residence infrastructure and comfort",
+              caption: "Backup Generator & Water Cistern",
               imageUrl: siteAssets.floorPlanDsc2545,
+            },
+          ],
+          openMode: "private",
+        },
+        {
+          alt: "Coastal community perks and beach club lifestyle",
+          caption: "Shuttle & Owner Perks",
+          imageUrl: siteAssets.lifestyleAtlasCommunityPerks,
+          media: [
+            {
+              alt: "Coastal community perks and beach club lifestyle",
+              caption: "Beach Club & Restaurant Perks",
+              imageUrl: siteAssets.lifestyleAtlasCommunityPerks,
+            },
+            {
+              alt: "Connections RD coastal community access",
+              caption: "Free Shuttle Convenience",
+              imageUrl: siteAssets.galleryDsc2665,
+            },
+          ],
+          openMode: "private",
+        },
+        {
+          alt: "Connections RD easy ownership and covered parking amenity",
+          caption: "Parking & Easy Ownership",
+          imageUrl: siteAssets.lifestyleAtlasResidenceBalcony,
+          media: [
+            {
+              alt: "Connections RD easy ownership and covered parking amenity",
+              caption: "Covered Parking",
+              imageUrl: siteAssets.lifestyleAtlasResidenceBalcony,
+            },
+            {
+              alt: "Connections RD lock-and-leave residence lifestyle",
+              caption: "Lock-and-Leave Comfort",
+              imageUrl: siteAssets.floorPlanDsc2550,
             },
           ],
           openMode: "private",
@@ -311,28 +466,6 @@ export const homeBlocks: HomeBlock[] = [
     },
   },
   {
-    type: "ConnectionsWeatherBlock",
-    props: {
-      id: "home-ConnectionsWeatherBlock-2",
-      conditionHumid: "Humid",
-      conditionLabel: "Condition",
-      conditionMostlySunny: "Sunny",
-      conditionPartlyCloudy: "Partly Cloudy",
-      conditionRainy: "Rainy",
-      conditionUnknown: "No Data",
-      conditionWindy: "Windy",
-      humidityLabel: "Humidity",
-      narrative: "Track live conditions at the project - surf, sun, and sea breeze all year long.",
-      sectionLabel: "Live Weather",
-      temperatureLabel: "Temperature",
-      title: "Real-time Weather at Cabarete",
-      toggleLabelC: "°C",
-      toggleLabelF: "°F",
-      uvLabel: "UV Index",
-      windLabel: "Wind",
-    },
-  },
-  {
     type: "ConnectionsLeadFormBlock",
     props: {
       id: "home-ConnectionsLeadFormBlock-10",
@@ -355,6 +488,28 @@ export const homeBlocks: HomeBlock[] = [
       privacyNote: "Your information is secure and will never be shared. We respect your privacy.",
     },
   },
+    {
+    type: "ConnectionsWeatherBlock",
+    props: {
+      id: "home-ConnectionsWeatherBlock-2",
+      conditionHumid: "Humid",
+      conditionLabel: "Condition",
+      conditionMostlySunny: "Sunny",
+      conditionPartlyCloudy: "Partly Cloudy",
+      conditionRainy: "Rainy",
+      conditionUnknown: "No Data",
+      conditionWindy: "Windy",
+      humidityLabel: "Humidity",
+      narrative: "Track live conditions at the project - surf, sun, and sea breeze all year long.",
+      sectionLabel: "Live Weather",
+      temperatureLabel: "Temperature",
+      title: "Real-time Weather at Cabarete",
+      toggleLabelC: "°C",
+      toggleLabelF: "°F",
+      uvLabel: "UV Index",
+      windLabel: "Wind",
+    },
+  },
   {
     type: "ConnectionsFooterBlock",
     props: {
@@ -374,8 +529,6 @@ export const homeBlocks: HomeBlock[] = [
         { href: "#location", label: "Location" },
       ],
       resourcesLinks: [
-        { href: "#investment", label: "Investment" },
-        { href: "#community", label: "Community" },
         { href: "#lead-form", label: "Info Packet" },
         { href: "#", label: "Virtual Tour" },
       ],

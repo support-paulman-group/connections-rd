@@ -1,17 +1,17 @@
 import { ChevronDown, X } from "lucide-react";
 import { useState } from "react";
+import { ConnectionsBrandMark } from "@componentes/shared/ConnectionsBrandMark";
 import type { NavLink } from "@herramientas/content/types";
 
 type MobileDrawerProps = {
   links: NavLink[];
   logoLightUrl: string;
-  logoMobileWidth: number;
   ownerAccessHref: string;
   ownerAccessLabel: string;
   onClose: () => void;
 };
 
-export function MobileDrawer({ links, logoLightUrl, logoMobileWidth, ownerAccessHref, ownerAccessLabel, onClose }: MobileDrawerProps) {
+export function MobileDrawer({ links, logoLightUrl, ownerAccessHref, ownerAccessLabel, onClose }: MobileDrawerProps) {
   const [openGroups, setOpenGroups] = useState<Record<string, boolean>>({});
 
   const toggleGroup = (key: string) => {
@@ -22,7 +22,7 @@ export function MobileDrawer({ links, logoLightUrl, logoMobileWidth, ownerAccess
     <div className="connections-drawer" role="dialog" aria-modal="true" aria-label="Mobile navigation">
       <aside className="connections-drawer__panel">
         <div className="connections-drawer__head">
-          <img src={logoLightUrl} alt="Connections RD" style={{ width: logoMobileWidth }} />
+          <ConnectionsBrandMark src={logoLightUrl} variant="light" context="drawer" className="connections-drawer__brand" />
           <button type="button" onClick={onClose} aria-label="Close navigation menu">
             <X size={22} />
           </button>

@@ -5,6 +5,7 @@ import { ConnectionsFooter } from "./ConnectionsFooter";
 import { ConnectionsGallery, GenericGallery } from "./Galleries";
 import { ConnectionsHero } from "./ConnectionsHero";
 import { ConnectionsLeadForm } from "./ConnectionsLeadForm";
+import { ConnectionsLifestyleAtlas } from "./ConnectionsLifestyleAtlas";
 import { ConnectionsLocation } from "./ConnectionsLocation";
 import { ConnectionsNavbar } from "./ConnectionsNavbar";
 import { ConnectionsWeather } from "./ConnectionsWeather";
@@ -29,6 +30,8 @@ export function HomeBlockRenderer({ blocks }: HomeBlockRendererProps) {
             return <ConnectionsCardBlock key={block.props.id} {...block.props} variant="soft" />;
           case "ConnectionsFloorPlansBlock":
             return <ConnectionsFloorPlans key={block.props.id} {...block.props} />;
+          case "ConnectionsLifestyleAtlasBlock":
+            return <ConnectionsLifestyleAtlas key={block.props.id} {...block.props} />;
           case "ConnectionsInvestmentBlock":
             return <ConnectionsCardBlock key={block.props.id} {...block.props} variant="dark" />;
           case "ConnectionsAmenitiesBlock":
@@ -39,10 +42,10 @@ export function HomeBlockRenderer({ blocks }: HomeBlockRendererProps) {
             return <ConnectionsGallery key={block.props.id} {...block.props} />;
           case "ConnectionsLocationBlock":
             return <ConnectionsLocation key={block.props.id} {...block.props} />;
-          case "ConnectionsWeatherBlock":
-            return <ConnectionsWeather key={block.props.id} {...block.props} />;
           case "ConnectionsLeadFormBlock":
             return <ConnectionsLeadForm key={block.props.id} {...block.props} />;
+          case "ConnectionsWeatherBlock":
+            return <ConnectionsWeather key={block.props.id} {...block.props} />;
           case "ConnectionsFooterBlock":
             return <ConnectionsFooter key={block.props.id} {...block.props} />;
           default:

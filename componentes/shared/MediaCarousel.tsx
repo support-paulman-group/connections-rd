@@ -1,6 +1,6 @@
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import type { FloorPlanSlide } from "@herramientas/content/types";
+import { MediaControls, MediaDots, MediaStage, type SharedMediaItem } from "./media";
 
 type MediaCarouselProps = {
   slides: FloorPlanSlide[];
@@ -8,7 +8,17 @@ type MediaCarouselProps = {
 };
 
 export function MediaCarousel({ slides, label }: MediaCarouselProps) {
-  const validSlides = useMemo(() => slides.filter((slide) => slide.imageUrl), [slides]);
+  const validSlides = useMemo<SharedMediaItem[]>(
+    () =>
+      slides
+        .filter((slide) => slide.imageUrl)
+        .map((slide) => ({
+          alt: slide.imageAlt,
+          caption: slide.imageCaption,
+          imageUrl: slide.imageUrl,
+        })),
+    [slides],
+  );
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -24,7 +34,6 @@ export function MediaCarousel({ slides, label }: MediaCarouselProps) {
   }
 
   const current = validSlides[active] ?? validSlides[0];
-  const isVideo = /\.(mp4|mov|webm)$/i.test(current.imageUrl);
 
   function move(direction: -1 | 1) {
     setActive((currentIndex) => (currentIndex + direction + validSlides.length) % validSlides.length);
@@ -33,38 +42,25 @@ export function MediaCarousel({ slides, label }: MediaCarouselProps) {
   return (
     <div className="media-carousel">
       <div className="media-carousel__stage">
-        {isVideo ? (
-          <video src={current.imageUrl} autoPlay muted loop playsInline />
-        ) : (
-          <img src={current.imageUrl} alt={current.imageAlt || current.imageCaption || label} loading="lazy" />
-        )}
-        {(current.imageCaption || current.imageAlt) && (
+        <MediaStage items={validSlides} activeIndex={active} label={label} imageLoading="lazy" />
+        {(current.caption || current.alt) && (
           <div className="media-carousel__caption">
-            {current.imageCaption && <strong>{current.imageCaption}</strong>}
-            {current.imageAlt && <span>{current.imageAlt}</span>}
+            {current.caption && <strong>{current.caption}</strong>}
+            {current.alt && <span>{current.alt}</span>}
           </div>
         )}
       </div>
 
       {validSlides.length > 1 && (
         <>
-          <button className="media-carousel__arrow media-carousel__arrow--prev" type="button" onClick={() => move(-1)} aria-label="Previous media">
-            <ChevronLeft size={22} />
-          </button>
-          <button className="media-carousel__arrow media-carousel__arrow--next" type="button" onClick={() => move(1)} aria-label="Next media">
-            <ChevronRight size={22} />
-          </button>
-          <div className="media-carousel__dots">
-            {validSlides.map((slide, index) => (
-              <button
-                key={`${slide.imageUrl}-${index}`}
-                type="button"
-                aria-label={`Show media ${index + 1}`}
-                aria-pressed={index === active}
-                onClick={() => setActive(index)}
-              />
-            ))}
-          </div>
+          <MediaControls
+            className="media-carousel__arrow"
+            previousClassName="media-carousel__arrow--prev"
+            nextClassName="media-carousel__arrow--next"
+            onPrevious={() => move(-1)}
+            onNext={() => move(1)}
+          />
+          <MediaDots className="media-carousel__dots" items={validSlides} activeIndex={active} onSelect={setActive} />
         </>
       )}
     </div>

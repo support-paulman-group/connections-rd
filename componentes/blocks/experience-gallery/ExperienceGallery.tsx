@@ -17,7 +17,7 @@ export function ExperienceGallery(props: ExperienceGalleryProps) {
   const tiles = useMemo(() => normalizeGalleryItems(props.items), [props.items]);
   const catalog = useMemo(() => buildGeneralCatalog(tiles), [tiles]);
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalState, setModalState] = useState<ExperienceModalState>(() => resolveGeneralModal(catalog));
+  const [modalState, setModalState] = useState<ExperienceModalState>(() => resolveGeneralModal(catalog, props.title));
 
   const closeModal = useCallback(() => setModalOpen(false), []);
 
@@ -25,16 +25,16 @@ export function ExperienceGallery(props: ExperienceGalleryProps) {
     (index: number) => {
       const tile = tiles[index];
       if (!tile) return;
-      setModalState(resolveTileModal(tile, catalog));
+      setModalState(resolveTileModal(tile, catalog, props.title));
       setModalOpen(true);
     },
-    [catalog, tiles],
+    [catalog, props.title, tiles],
   );
 
   const openCatalogModal = useCallback(() => {
-    setModalState(resolveGeneralModal(catalog));
+    setModalState(resolveGeneralModal(catalog, props.title));
     setModalOpen(true);
-  }, [catalog]);
+  }, [catalog, props.title]);
 
   const showNext = useCallback(() => {
     setModalState((state) => {
@@ -72,10 +72,10 @@ export function ExperienceGallery(props: ExperienceGalleryProps) {
   if (tiles.length === 0 || catalog.length === 0) return null;
 
   return (
-    <section className="experience-gallery" id="gallery">
+    <section className="experience-gallery" id={props.anchorId || "gallery"}>
       <div className="experience-gallery__header">
-        <span>An Exclusive Preview</span>
-        <h2>The Experience</h2>
+        <span>{props.sectionLabel}</span>
+        <h2>{props.title}</h2>
         <div aria-hidden="true" />
       </div>
       <ExperienceBentoGrid catalogCount={catalog.length} items={tiles} onOpenCatalog={openCatalogModal} onOpenTile={openTileModal} />

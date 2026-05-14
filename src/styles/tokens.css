@@ -1,4 +1,25 @@
 :root {
+  --font-champagne-regular-src: url("/fonts/champagne-limousines/Champagne-Limousines.ttf");
+  --font-champagne-bold-src: url("/fonts/champagne-limousines/Champagne-Limousines-Bold.ttf");
+}
+
+@font-face {
+  font-family: "Champagne & Limousines";
+  src: var(--font-champagne-regular-src) format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Champagne & Limousines Bold";
+  src: var(--font-champagne-bold-src) format("truetype");
+  font-display: swap;
+  font-style: normal;
+  font-weight: 700;
+}
+
+:root {
   /* Shadcn-compatible semantic tokens. New component CSS should prefer these. */
   --background: oklch(1 0 0);
   --foreground: oklch(0.22 0 0);
@@ -30,7 +51,8 @@
 
   /* Typography tokens. */
   --font-sans: "Montserrat", system-ui, sans-serif;
-  --font-serif: "Georgia", "Times New Roman", serif;
+  --font-serif: "Champagne & Limousines", "Georgia", "Times New Roman", serif;
+  --font-logo: "Champagne & Limousines Bold", "Montserrat", system-ui, sans-serif;
   --font-body: var(--font-sans);
   --font-display: var(--font-serif);
 
