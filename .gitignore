@@ -5,3 +5,4 @@ dist/
 .env.*
 dev-server*.log
 npm-debug.log*
+.vercel
