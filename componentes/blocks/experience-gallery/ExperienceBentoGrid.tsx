@@ -1,4 +1,5 @@
 import { Grid2X2 } from "lucide-react";
+import { MediaFrame } from "@componentes/shared/media";
 import type { ExperienceTile } from "./galleryModel";
 
 type ExperienceBentoGridProps = {
@@ -34,11 +35,7 @@ export function ExperienceBentoGrid({ catalogCount, items, onOpenCatalog, onOpen
             onClick={() => onOpenTile(index)}
             aria-label={`Open ${label}`}
           >
-            {item.cover.type === "video" && item.cover.videoUrl ? (
-              <video src={item.cover.videoUrl} autoPlay loop muted playsInline />
-            ) : (
-              <img src={item.cover.imageUrl} alt={item.cover.alt || label} loading={index === 0 ? "eager" : "lazy"} />
-            )}
+            <MediaFrame item={item.cover} label={label} imageProps={{ loading: index === 0 ? "eager" : "lazy" }} />
             <span className="experience-gallery__overlay">
               <span className="experience-gallery__meta">{isPrivate ? `${mediaCount} Photos` : "View Gallery"}</span>
               {size === "large" && <span className="experience-gallery__kicker">Perspective</span>}
@@ -53,17 +50,17 @@ export function ExperienceBentoGrid({ catalogCount, items, onOpenCatalog, onOpen
           className="experience-gallery__catalog"
           type="button"
           onClick={onOpenCatalog}
-          aria-label="Open full gallery"
+          aria-label="Open all amenities"
         >
           <span className="experience-gallery__catalog-icon" aria-hidden="true">
             <Grid2X2 size={24} strokeWidth={1.5} />
           </span>
           <span className="experience-gallery__catalog-title">
-            Full
+            View
             <br />
-            Catalog
+            All
           </span>
-          <span className="experience-gallery__catalog-link">Explore {catalogCount} Media</span>
+          <span className="experience-gallery__catalog-link">Explore {catalogCount} Amenities</span>
         </button>
       )}
     </div>

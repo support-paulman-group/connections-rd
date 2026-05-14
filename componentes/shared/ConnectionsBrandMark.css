@@ -1,0 +1,83 @@
+.connections-brand {
+  --brand-icon-size: 44px;
+  --brand-wordmark-size: 0.82rem;
+  --brand-wordmark-color: var(--brand-deep);
+  --brand-wordmark-tracking: 0.08em;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--brand-wordmark-color);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.connections-brand__icon-wrap {
+  width: var(--brand-icon-size);
+  height: var(--brand-icon-size);
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 var(--brand-icon-size);
+}
+
+.connections-brand__icon {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  object-position: center;
+}
+
+.connections-brand__wordmark {
+  color: currentColor;
+  font-family: var(--font-logo);
+  font-size: var(--brand-wordmark-size);
+  font-weight: 700;
+  letter-spacing: var(--brand-wordmark-tracking);
+  text-transform: uppercase;
+}
+
+.connections-brand--light {
+  --brand-wordmark-color: var(--primary-foreground);
+}
+
+.connections-brand--dark {
+  --brand-wordmark-color: var(--brand-deep);
+}
+
+.connections-brand--nav {
+  --brand-icon-size: 56px;
+  --brand-wordmark-size: 0.92rem;
+  gap: 12px;
+}
+
+.connections-brand--drawer {
+  --brand-icon-size: 52px;
+  --brand-wordmark-size: 0.95rem;
+}
+
+.connections-brand--footer {
+  --brand-icon-size: 58px;
+  --brand-wordmark-size: 1rem;
+  gap: 12px;
+}
+
+.connections-brand--hero {
+  --brand-icon-size: 82px;
+  --brand-wordmark-size: 1.08rem;
+  flex-direction: column;
+  gap: 12px;
+}
+
+@media (max-width: 768px) {
+  .connections-brand--nav {
+    --brand-icon-size: 44px;
+    --brand-wordmark-size: 0.78rem;
+    --brand-wordmark-tracking: 0.07em;
+    gap: 8px;
+  }
+
+  .connections-brand--drawer {
+    --brand-icon-size: 44px;
+    --brand-wordmark-size: 0.82rem;
+  }
+}

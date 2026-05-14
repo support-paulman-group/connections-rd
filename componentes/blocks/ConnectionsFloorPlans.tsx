@@ -1,5 +1,12 @@
 import { ArrowRight, Check, Home, Ruler, Sparkles, Tag } from "lucide-react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import {
+  AREA_UNIT_STORAGE_KEY,
+  formatArea,
+  inferAreaUnit,
+  readStoredAreaUnit,
+  type AreaUnitSystem,
+} from "@componentes/shared/areaUnits";
 import { MediaCarousel } from "@componentes/shared/MediaCarousel";
 import { SectionHeader } from "@componentes/shared/SectionHeader";
 import type { ConnectionsFloorPlansBlock } from "@herramientas/content/types";
@@ -8,10 +15,21 @@ type Props = ConnectionsFloorPlansBlock["props"];
 
 export function ConnectionsFloorPlans(props: Props) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [unitSystem, setUnitSystem] = useState<AreaUnitSystem>("imperial");
   const active = props.tabs[activeIndex] ?? props.tabs[0];
   const features = active.features.map((feature) => (typeof feature === "string" ? feature : feature.value));
   const hasSlides = Boolean(active.slides?.some((slide) => slide.imageUrl));
   const tabPanelId = `${props.id}-panel`;
+  const formattedArea = formatArea(active, unitSystem);
+
+  useEffect(() => {
+    setUnitSystem(readStoredAreaUnit() ?? inferAreaUnit());
+  }, []);
+
+  const updateUnitSystem = (nextUnitSystem: AreaUnitSystem) => {
+    setUnitSystem(nextUnitSystem);
+    window.localStorage.setItem(AREA_UNIT_STORAGE_KEY, nextUnitSystem);
+  };
 
   return (
     <section className="connections-floor section" id="units">
@@ -31,6 +49,17 @@ export function ConnectionsFloorPlans(props: Props) {
               <small>{tab.price}</small>
             </button>
           ))}
+        </div>
+        <div className="connections-floor__unit-toggle fade-in" aria-label="Area unit preference">
+          <span>Area shown in</span>
+          <div>
+            <button type="button" aria-pressed={unitSystem === "imperial"} onClick={() => updateUnitSystem("imperial")}>
+              sq ft
+            </button>
+            <button type="button" aria-pressed={unitSystem === "metric"} onClick={() => updateUnitSystem("metric")}>
+              sq m
+            </button>
+          </div>
         </div>
 
         <div className="connections-floor__content fade-in" id={tabPanelId} role="tabpanel">
@@ -54,7 +83,7 @@ export function ConnectionsFloorPlans(props: Props) {
             )}
             <div className="connections-floor__media-note">
               <span>Cabarete coastal residences</span>
-              <strong>{active.sqft}</strong>
+              <strong>{formattedArea}</strong>
             </div>
           </div>
 
@@ -72,7 +101,7 @@ export function ConnectionsFloorPlans(props: Props) {
               <div>
                 <Ruler size={18} />
                 <span>Interior scale</span>
-                <strong>{active.sqft}</strong>
+                <strong>{formattedArea}</strong>
               </div>
               <div>
                 <Tag size={18} />
@@ -179,9 +208,62 @@ export function ConnectionsFloorPlans(props: Props) {
         }
 
         .connections-floor__tabs button:focus-visible,
+        .connections-floor__unit-toggle button:focus-visible,
         .connections-floor__cta-row a:focus-visible {
           outline: 3px solid rgba(167, 211, 221, 0.95);
           outline-offset: 4px;
+        }
+
+        .connections-floor__unit-toggle {
+          position: relative;
+          z-index: 1;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 10px;
+          width: fit-content;
+          margin: -22px auto 34px;
+          padding: 7px 8px 7px 14px;
+          border: 1px solid rgba(15,94,112,0.1);
+          border-radius: 999px;
+          background: rgba(255,255,255,0.76);
+          box-shadow: var(--shadow-sm);
+          backdrop-filter: blur(18px);
+        }
+
+        .connections-floor__unit-toggle > span {
+          color: var(--muted-foreground);
+          font-size: 0.72rem;
+          font-weight: 800;
+          letter-spacing: 0.08em;
+          text-transform: uppercase;
+        }
+
+        .connections-floor__unit-toggle div {
+          display: inline-flex;
+          gap: 4px;
+          padding: 3px;
+          border-radius: 999px;
+          background: rgba(15,94,112,0.08);
+        }
+
+        .connections-floor__unit-toggle button {
+          min-height: 32px;
+          padding: 6px 12px;
+          border: 0;
+          border-radius: 999px;
+          background: transparent;
+          color: var(--brand-deep);
+          font-size: 0.78rem;
+          font-weight: 800;
+          cursor: pointer;
+          transition: background 180ms ease, color 180ms ease, box-shadow 180ms ease;
+        }
+
+        .connections-floor__unit-toggle button[aria-pressed="true"] {
+          background: var(--brand-deep);
+          color: var(--primary-foreground);
+          box-shadow: 0 10px 24px rgba(8, 51, 64, 0.16);
         }
 
         .connections-floor__content {
@@ -470,6 +552,12 @@ export function ConnectionsFloorPlans(props: Props) {
         @media (max-width: 640px) {
           .connections-floor__tabs {
             margin-bottom: 24px;
+          }
+
+          .connections-floor__unit-toggle {
+            width: 100%;
+            justify-content: space-between;
+            margin: -8px 0 24px;
           }
 
           .connections-floor__details {

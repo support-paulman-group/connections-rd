@@ -33,6 +33,8 @@ export type FloorPlanSlide = {
 export type FloorPlan = {
   label: string;
   sqft: string;
+  areaSqFt?: number;
+  areaIsApproximate?: boolean;
   price: string;
   features: Array<string | { value: string }>;
   slides?: FloorPlanSlide[];
@@ -47,6 +49,27 @@ export type LocationHighlight = {
   icon: string;
   label: string;
   distance: string;
+};
+
+export type LifestyleAtlasHighlight = {
+  icon: string;
+  title: string;
+  description: string;
+};
+
+export type LifestyleAtlasChapter = {
+  id: string;
+  icon: string;
+  label: string;
+  eyebrow: string;
+  title: string;
+  description: string;
+  metric: {
+    label: string;
+    value: string;
+  };
+  media: GalleryMedia[];
+  highlights: LifestyleAtlasHighlight[];
 };
 
 export type ConnectionsNavbarBlock = {
@@ -119,6 +142,21 @@ export type ConnectionsAmenitiesBlock = {
   };
 };
 
+export type ConnectionsLifestyleAtlasBlock = {
+  type: "ConnectionsLifestyleAtlasBlock";
+  props: {
+    id: string;
+    chapters: LifestyleAtlasChapter[];
+    primaryCtaHref: string;
+    primaryCtaLabel: string;
+    secondaryCtaHref: string;
+    secondaryCtaLabel: string;
+    sectionLabel: string;
+    subtitle: string;
+    title: string;
+  };
+};
+
 export type GenericGalleryBlock = {
   type: "GalleryBlock";
   props: {
@@ -132,6 +170,7 @@ export type GenericGalleryBlock = {
 export type ConnectionsGalleryBlock = {
   type: "ConnectionsGalleryBlock";
   props: {
+    anchorId?: string;
     id: string;
     items: GalleryItem[];
     sectionLabel: string;
@@ -224,6 +263,7 @@ export type HomeBlock =
   | CardBlock
   | ConnectionsFloorPlansBlock
   | ConnectionsAmenitiesBlock
+  | ConnectionsLifestyleAtlasBlock
   | GenericGalleryBlock
   | ConnectionsGalleryBlock
   | ConnectionsLocationBlock

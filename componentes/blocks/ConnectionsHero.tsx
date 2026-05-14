@@ -174,7 +174,7 @@ export function ConnectionsHero(props: Props) {
         .connections-hero__scroll span[aria-hidden="true"] {
           position: absolute;
           top: 16px;
-          right: 19px;
+          left: 25px;
           width: 3px;
           height: 7px;
           border-radius: 50%;
@@ -223,8 +223,8 @@ export function ConnectionsHero(props: Props) {
           }
 
           .connections-hero__scroll span[aria-hidden="true"] {
-            top: 14px;
-            right: 17px;
+            top: 13px;
+            left: 22px;
           }
         }
 

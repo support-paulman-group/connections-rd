@@ -1,6 +1,7 @@
 import { Menu, UserRound } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { CSSProperties } from "react";
+import { ConnectionsBrandMark } from "@componentes/shared/ConnectionsBrandMark";
 import type { ConnectionsNavbarBlock } from "@herramientas/content/types";
 import { DesktopNav } from "./navbar/DesktopNav";
 import { MobileDrawer } from "./navbar/MobileDrawer";
@@ -48,10 +49,11 @@ export function ConnectionsNavbar(props: Props) {
   }, [mobileOpen]);
 
   const logoSrc = heroVisible ? props.logoLightUrl || props.logoDarkUrl : props.logoDarkUrl || props.logoLightUrl;
+  const brandVariant = heroVisible ? "light" : "dark";
   const foreground = heroVisible ? "#ffffff" : "var(--foreground)";
   const logoStyle = {
-    width: props.logoDesktopWidth,
-    "--mobile-logo-width": `${props.logoMobileWidth}px`,
+    "--brand-lockup-width": `${props.logoDesktopWidth}px`,
+    "--mobile-brand-lockup-width": `${props.logoMobileWidth}px`,
   } as CSSProperties;
 
   return (
@@ -59,7 +61,7 @@ export function ConnectionsNavbar(props: Props) {
       <header className={heroVisible ? "connections-nav connections-nav--hero" : "connections-nav"}>
         <div className="connections-nav__inner">
           <a href="#" className="connections-nav__logo" style={logoStyle} aria-label="Connections RD home">
-            <img src={logoSrc} alt="Connections RD" />
+            <ConnectionsBrandMark src={logoSrc} variant={brandVariant} context="nav" />
           </a>
 
           <DesktopNav links={props.links} foreground={foreground} openMenu={openMenu} setOpenMenu={setOpenMenu} />
@@ -86,7 +88,6 @@ export function ConnectionsNavbar(props: Props) {
         <MobileDrawer
           links={props.links}
           logoLightUrl={props.logoLightUrl}
-          logoMobileWidth={props.logoMobileWidth}
           ownerAccessHref={props.ownerAccessHref}
           ownerAccessLabel={props.ownerAccessLabel}
           onClose={() => setMobileOpen(false)}

@@ -61,7 +61,7 @@ export function buildGeneralCatalog(tiles: ExperienceTile[]): GalleryMedia[] {
   return catalog;
 }
 
-export function resolveTileModal(tile: ExperienceTile, catalog: GalleryMedia[]): ExperienceModalState {
+export function resolveTileModal(tile: ExperienceTile, catalog: GalleryMedia[], catalogTitle: string): ExperienceModalState {
   const hasPrivateCollection = tile.openMode !== "general" && tile.media.length > 1;
 
   if (hasPrivateCollection) {
@@ -83,15 +83,15 @@ export function resolveTileModal(tile: ExperienceTile, catalog: GalleryMedia[]):
     activeIndex: catalogIndex,
     items: catalog,
     mode: "general",
-    title: "The Experience",
+    title: catalogTitle,
   };
 }
 
-export function resolveGeneralModal(catalog: GalleryMedia[]): ExperienceModalState {
+export function resolveGeneralModal(catalog: GalleryMedia[], catalogTitle: string): ExperienceModalState {
   return {
     activeIndex: 0,
     items: catalog,
     mode: "general",
-    title: "The Experience",
+    title: catalogTitle,
   };
 }

@@ -1,3 +1,4 @@
+import { ConnectionsBrandMark } from "@componentes/shared/ConnectionsBrandMark";
 import type { ConnectionsFooterBlock } from "@herramientas/content/types";
 
 type Props = ConnectionsFooterBlock["props"];
@@ -15,7 +16,7 @@ export function ConnectionsFooter(props: Props) {
     <footer className="connections-footer">
       <div className="container connections-footer__grid">
         <div>
-          {props.logoUrl ? <img className="connections-footer__logo" src={props.logoUrl} alt="Connections RD" loading="lazy" /> : <strong>{props.tagline}</strong>}
+          {props.logoUrl ? <ConnectionsBrandMark src={props.logoUrl} variant="light" context="footer" className="connections-footer__brand" /> : <strong>{props.tagline}</strong>}
           <p className="connections-footer__tagline">{props.tagline}</p>
           <p>{props.description}</p>
           <div className="connections-footer__social">
@@ -71,11 +72,7 @@ export function ConnectionsFooter(props: Props) {
           gap: 40px;
         }
 
-        .connections-footer__logo {
-          width: 180px;
-          max-height: 80px;
-          object-fit: contain;
-          object-position: left center;
+        .connections-footer__brand {
           margin-bottom: 18px;
         }
 
